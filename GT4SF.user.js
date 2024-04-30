@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Salesforce Helper Script
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.61
 // @description  Salesforce automation
 // @author       You
 // @match        https://hp.my.salesforce.com/*
@@ -45,7 +45,7 @@
             let emailInput = document.querySelector('[id="00NG00000064bdl"]');
             if (emailInput) emailInput.value = storedEmail;
             let ccInput = document.querySelector('[id="00N2700000D58Nz"]');
-            if (ccInput) ccInput.value = ccInput.value.split(";").map(part => "$" + part).join(";");
+            if (ccInput && ccInput.length>0) ccInput.value = ccInput.value.split(";").map(part => "$" + part).join(";");
             let retainInput = document.querySelector('[id="00NG00000064bdk"]');
             if (retainInput) retainInput.checked = true;
 
